@@ -1,6 +1,35 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import { reactive } from "vue";
+import SuperForm from "./components/SuperForm";
+import type { FieldConfig } from "./components/SuperForm";
+
+const fieldConfigs: FieldConfig[] = [
+  {
+    key: "password",
+    type: "input",
+    props: {
+      label: "password",
+      rules: [(v: string) => !!v || "Required."],
+    },
+  },
+  {
+    key: "passwordRepeat",
+    type: "input",
+    props: {
+      label: "password",
+      rules: [
+        (v: string) => !!v || "Required.",
+        (v: string) => v === fields.password || "Passwords must match.",
+      ],
+    },
+  },
+];
+
+function onClickSubmit(res: any) {
+  console.log(res);
+}
+
+const fields = reactive<any>({});
 </script>
 
 <template>
@@ -12,14 +41,16 @@ import TheWelcome from "./components/TheWelcome.vue";
       width="125"
       height="125"
     />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <SuperForm
+      @submit="onClickSubmit"
+      :fields="fields"
+      :field-configs="fieldConfigs"
+    >
+      <VBtn type="submit">Click me</VBtn>
+    </SuperForm>
   </main>
 </template>
 
@@ -31,23 +62,5 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
 </style>
