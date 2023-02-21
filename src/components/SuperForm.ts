@@ -1,23 +1,10 @@
 import { VForm, VTextField } from "vuetify/components";
 import { defineComponent, h, type PropType } from "vue";
+import type { FieldConfig } from "./SuperForm.type";
 
 const typeToComponent: any = {
   input: VTextField,
 };
-
-export interface FieldConfig {
-  key: string;
-  type: string;
-  props?: {
-    label: string;
-    rules: any[];
-  };
-}
-
-export interface FormResult {
-  valid: boolean;
-  fields: any;
-}
 
 function generateVNoteFromFieldConfig(
   fieldConfigs: FieldConfig[],

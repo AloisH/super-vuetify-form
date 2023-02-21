@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import SuperForm from "./components/SuperForm";
-import type { FieldConfig } from "./components/SuperForm";
+import type { FieldConfig } from "./components/SuperForm.type";
 
 const fieldConfigs: FieldConfig[] = [
   {
