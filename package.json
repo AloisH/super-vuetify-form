@@ -1,13 +1,13 @@
 {
   "name": "@heloirdev/vue-super-form",
+  "private": false,
   "version": "0.1.0",
   "author": "Aloïs Heloir",
   "main": "dist/vue-super-form.umd.js",
-  "module": "dist/vue-super-form.esm.js",
+  "module": "dist/vue-super-form.mjs",
   "file": [
     "dist"
   ],
-  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
