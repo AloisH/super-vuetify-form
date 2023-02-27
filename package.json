@@ -1,7 +1,13 @@
 {
-  "name": "vuetify-super-form",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@heloirdev/vue-super-form",
+  "version": "0.1.0",
+  "author": "Aloïs Heloir",
+  "main": "dist/vue-super-form.umd.js",
+  "module": "dist/vue-super-form.esm.js",
+  "file": [
+    "dist"
+  ],
+  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

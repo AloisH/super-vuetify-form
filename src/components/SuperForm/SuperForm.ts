@@ -1,6 +1,6 @@
 import { VForm, VTextField } from "vuetify/components";
 import { defineComponent, h, type PropType } from "vue";
-import type { FieldConfig } from "./SuperForm.type";
+import type { FieldConfig } from "../SuperForm/SuperForm.type";
 
 const typeToComponent: any = {
   input: VTextField,
