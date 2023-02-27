@@ -13,8 +13,16 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: "@heloir.dev/vue-super-form",
+      name: "@heloir/vue-super-form",
       entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
+    },
+    rollupOptions: {
+      external: ["vue", "vuetify/components"],
+      output: {
+        globals: {
+          vue: "Vue",
+        },
+      },
     },
   },
 });
